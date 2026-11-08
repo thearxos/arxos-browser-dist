@@ -31,6 +31,11 @@ When = PostTransaction
 Exec = /usr/lib/arxos/reapply-firefox.sh
 HK
 
+# ---- Welcome page ----
+# The local first-run welcome page the browsers open. It is part of the ARXOS browser identity the
+# ISO build's post-install gate verifies, so it ships from this reviewed dist (not only the golden).
+install -Dm644 "$HERE/welcome.html" "$SRC/welcome.html"
+
 # ---- Brave ----
 install -Dm644 "$HERE/brave/arxos.json" /etc/brave/policies/managed/arxos.json
 install -Dm644 "$HERE/brave/brave-flags.conf" /etc/skel/.config/brave-flags.conf
